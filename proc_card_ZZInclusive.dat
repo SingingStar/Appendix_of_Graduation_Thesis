@@ -1,0 +1,61 @@
+set run_mode 2
+#set cluster_type condor
+#set cluster_queue madgraph
+#set cluster_size 150
+#Define multiparticle labels
+import model sm-no_b_mass
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+define l+ = e+ mu+
+define l- = e- mu-
+generate p p > z z, z > l+ l-, z > l+ l-
+output ZZInclusive
+launch
+#shower=Pythia8
+#Change param_card
+#set DECAY 25 4.15e-03 ## Higgs width
+#Change run_card
+#set gridpack True
+set iseed SEED
+set pdlabel lhapdf
+set lhaid 260000
+set lhe_version 3.0
+set cut_decays True
+set ebeam1 6500
+set ebeam2 6500
+set ptj 30
+set ptb 30
+set ktdurham 30
+set ptl 3
+set etaj -1
+set etab -1
+#set etal 2.8 
+set drjj 0
+set drll 0.04
+set draa 0
+set draj 0
+set drjl 0
+set dral 0
+set maxjetflavor 5
+#set mmjj 10
+#set mmll 4
+set auto_ptj_mjj False
+set event_norm sum
+set use_syst True
+set sys_scalefact 0.5 1 2
+set sys_pdf NNPDF30_nlo_as_0118
+set nevents 20000
+#Showering config
+#set ickkw 1
+#set dparameter 0.4
+#set xqcut 0
+#set Merging:Process="pp>e+e-mu+mu-"
+#set Merging:nJetMax=2
+#set Merging:Dparameter=0.4
+#set Merging:TMS=30
+#set Merging:nQuarksMerge=5
+#set SysCalc:qCutList auto
+#JetMatching:doShowerKt = on
+done
+
+
